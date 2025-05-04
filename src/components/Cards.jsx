@@ -1,7 +1,9 @@
 import { useState } from "react";
 import CardDetail from './CardDetail.jsx';
+import { Grid, Button, Typography } from '@mui/material';
 
-const Cards = ({ pokemons, page}) => {
+
+const Cards = ({ pokemons, page }) => {
 
 
   const [selectedPokemon, setSelectedPokemon] = useState([]);
@@ -12,14 +14,14 @@ const Cards = ({ pokemons, page}) => {
     setSelectedPokemon(data);
   }
 
-  
+
   const renderPokemon = [];
 
-  for(let i = page[0]; i < page[1] && i < pokemons.length; i++){
+  for (let i = page[0]; i < page[1] && i < pokemons.length; i++) {
     renderPokemon.push(
-      <div className="card" onClick={() => onPokemonClick(pokemons[i].url)}>
+      <Button className="card" onClick={() => onPokemonClick(pokemons[i].url)} sx={{color: 'white', backgroundColor: "darkgray", width: '95%', margin:.5, margin: 1}} style={{ cursor: "pointer" }}>
         {pokemons[i].name}
-      </div>
+      </Button>
     )
   }
 
@@ -31,10 +33,10 @@ const Cards = ({ pokemons, page}) => {
 
 
   return (
-    <div className="cards">
+    <Grid className="cards" sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', backgroundColor: 'black', }}>
       {renderPokemon}
       {selectedPokemon && <CardDetail pokemon={selectedPokemon}></CardDetail>}
-    </div>
+    </Grid>
   );
 };
 
