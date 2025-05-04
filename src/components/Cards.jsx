@@ -19,7 +19,7 @@ const Cards = ({ pokemons, page }) => {
 
   for (let i = page[0]; i < page[1] && i < pokemons.length; i++) {
     renderPokemon.push(
-      <Button className="card" onClick={() => onPokemonClick(pokemons[i].url)} sx={{color: 'white', backgroundColor: "darkgray", width: '95%', margin:.5, margin: 1}} style={{ cursor: "pointer" }}>
+      <Button className="card" onClick={() => onPokemonClick(pokemons[i].url)} sx={{ color: 'white', backgroundColor: "darkgray", width: '95%', margin: .5, margin: 1 }} style={{ cursor: "pointer" }}>
         {pokemons[i].name}
       </Button>
     )
@@ -33,10 +33,12 @@ const Cards = ({ pokemons, page }) => {
 
 
   return (
-    <Grid className="cards" sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', backgroundColor: 'black', }}>
-      {renderPokemon}
+    <>
+      <Grid className="cards" sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', backgroundColor: 'black', }}>
+        {renderPokemon}
+      </Grid>
       {selectedPokemon && <CardDetail pokemon={selectedPokemon}></CardDetail>}
-    </Grid>
+    </>
   );
 };
 
