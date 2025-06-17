@@ -41,7 +41,7 @@ function App() {
       </Typography>
       <Cards pokemons={pokemon} page={page} />
       <Button onClick={backPage} disabled={page[0] === 0} sx={{ backgroundColor: 'gray', color: 'white', margin: 1 }}>Back</Button>
-      <Button onClick={nextPage} sx={{ bgcolor: 'yellow', color: 'black' }}>Next</Button>
+      <Button onClick={nextPage} sx={{ backgroundColor: 'yellow', color: 'black' }}>Next</Button>
     </Grid>
   );
 }
